@@ -2,6 +2,7 @@
 
 namespace aspnetserver.Data
 {
+    // model class for DB.
     internal sealed class Post
     {
         [Key]

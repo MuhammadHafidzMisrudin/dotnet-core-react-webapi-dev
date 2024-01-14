@@ -24,7 +24,7 @@ app.UseSwaggerUI(swaggerUIOptions =>
 app.UseHttpsRedirection();
 
 /*
-    create web apis.
+    create web api endpoints.
 */
 
 // add endpoint to get all posts.

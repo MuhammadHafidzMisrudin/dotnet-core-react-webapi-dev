@@ -2,7 +2,7 @@
 
 namespace aspnetserver.Data
 {
-    // static class for minimal web api endpoints to perform database CRUD operation.
+    // static class for post repository class for minimal web api endpoints to perform database CRUD operation.
     internal static class PostsRepository
     {
         // @GET - read operation to get all the posts.

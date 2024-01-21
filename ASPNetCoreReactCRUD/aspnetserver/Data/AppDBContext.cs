@@ -15,7 +15,7 @@ namespace aspnetserver.Data
             Post[] postsToSeed = new Post[6];
             for (int i = 1; i <= postsToSeed.Length; i++)
             {
-                // store values in 
+                // store values in postsToSeed array.
                 postsToSeed[i - 1] = new Post
                 {
                     PostId = i,

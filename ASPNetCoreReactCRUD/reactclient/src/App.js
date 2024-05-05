@@ -42,7 +42,7 @@ function App() {
               <td>Post 1 Title</td>
               <td>Post 1 Content</td>
               <td>
-                <button className="btn btn-dark btn-lg mx-3 my-3">UPDATE</button>
+                <button className="btn btn-dark btn-lg mx-2 my-2">UPDATE</button>
                 <button className="btn btn-danger btn-lg">DELETE</button>
               </td>
             </tr>

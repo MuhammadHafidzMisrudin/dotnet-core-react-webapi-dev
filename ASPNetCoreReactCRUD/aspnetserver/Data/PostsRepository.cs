@@ -79,7 +79,7 @@ namespace aspnetserver.Data
                     // intialise variable and set to post by id.
                     Post postToDelete = await GetPostByIdAsync(postId);
 
-                    // delete the post by id.
+                    // delete the post by id. 
                     db.Remove(postToDelete);
 
                     // persists the deleted post from the database.

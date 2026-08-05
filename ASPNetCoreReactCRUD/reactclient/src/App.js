@@ -11,7 +11,12 @@ function App() {
     fetch(url, {
       method: 'GET',
     })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`);
+        }
+        return response.json();
+      })
       .then(postsFromServer => {
         console.log("postsFromServer: ", postsFromServer);
         setPosts(postsFromServer);
@@ -37,17 +42,23 @@ function App() {
           </thead>
 
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Post 1 Title</td>
-              <td>Post 1 Content</td>
-              <td>
-                <button className="btn btn-dark btn-lg mx-2 my-2">UPDATE</button>
-                <button className="btn btn-danger btn-lg">DELETE</button>
-              </td>
-            </tr>
+
+            {posts.map((post) => (
+              <tr key={post.postId}>
+                <th scope="row">{post.postId}</th>
+                <td>{post.title}</td>
+                <td>{post.content}</td>
+                <td>
+                  <button type="button" className="btn btn-dark btn-lg mx-2 my-2">UPDATE</button>
+                  <button type="button" className="btn btn-danger btn-lg mx-2 my-2">DELETE</button>
+                </td>
+              </tr>
+            ))}
+      
           </tbody>
         </table>
+
+        <button type="button" onClick={() => setPosts([])} className="btn btn-dark btn-lg w-100 mt-2 mb-5">Clear Posts</button>
       </div>
     );
   }
@@ -61,11 +72,11 @@ function App() {
           </div>
 
           <div className="mt-5">
-            <button onClick={getPosts} className="btn btn-dark btn-lg w-100">Get Posts From Server!</button>
-            <button onClick={() => {}} className="btn btn-secondary btn-lg w-100 mt-4">Create New Post</button>
+            <button type="button" onClick={getPosts} className="btn btn-dark btn-lg w-100">Get Posts From Server!</button>
+            <button type="button" onClick={() => {}} className="btn btn-secondary btn-lg w-100 mt-4">Create New Post</button>
           </div>
 
-          {renderPostsTable()}
+          { posts.length > 0 && renderPostsTable() }
         </div>
       </div>
     </div>
